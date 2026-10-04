@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Jeganathan Selvam</title>
+
+<style>
+
+:root {
+    --bg: #05010d;
+    --panel: rgba(15,8,30,.82);
+    --cyan: #00f7ff;
+    --pink: #ff00d4;
+    --purple: #8b5cf6;
+    --green: #00ff88;
+    --text: #ecfaff;
+    --muted: #91a0b5;
+    --border: rgba(0,247,255,.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,247,255,.12), transparent 25%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,212,.12), transparent 25%),
+        radial-gradient(circle at 50% 90%, rgba(139,92,246,.12), transparent 30%),
+        #05010d;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(0,247,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,247,255,.06) 1px, transparent 1px);
+
+    background-size: 55px 55px;
+
+    transform:
+        perspective(500px)
+        rotateX(60deg)
+        scale(2);
+
+    transform-origin: center bottom;
+
+    opacity: .45;
+
+    animation: gridMove 12s linear infinite;
+}
+
+@keyframes gridMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 550px;
+    }
+}
+
+/* Navigation */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+
+    background: rgba(5,1,13,.75);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--cyan);
+    text-shadow: 0 0 12px var(--cyan);
+}
+
+nav a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+/* Hero */
+
+.hero {
+    padding: 150px 8% 80px;
+    min-height: 55vh;
+}
+
+.label {
+    color: var(--cyan);
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+h1 {
+    margin-top: 15px;
+
+    font-size: clamp(45px, 8vw, 80px);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
+    background-size: 200%;
+
+    color: transparent;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: gradientMove 5s infinite linear;
+}
+
+@keyframes gradientMove {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 200%;
+    }
+}
+
+.hero p {
+    margin-top: 25px;
+
+    max-width: 750px;
+
+    color: var(--muted);
+
+    font-size: 18px;
+}
+
+/* Case studies */
+
+.projects {
+    padding: 30px 8% 120px;
+}
+
+.case {
+    margin-bottom: 45px;
+
+    padding: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,8,35,.9),
+            rgba(5,3,15,.8)
+        );
+
+    backdrop-filter: blur(12px);
+
+    transition: .35s;
+
+    transform-style: preserve-3d;
+}
+
+.case:hover {
+    transform:
+        perspective(1000px)
+        rotateX(1deg)
+        rotateY(-1deg)
+        translateY(-7px);
+
+    border-color: var(--cyan);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.45),
+        0 0 30px rgba(0,247,255,.12);
+}
+
+.case-number {
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.case h2 {
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.case-intro {
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 800px;
+}
+
+.case-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px,1fr));
+
+    gap: 18px;
+
+    margin-top: 30px;
+}
+
+.info {
+    padding: 20px;
+
+    border: 1px solid rgba(0,247,255,.13);
+
+    border-radius: 9px;
+
+    background: rgba(0,247,255,.025);
+}
+
+.info h3 {
+    color: var(--cyan);
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 9px;
+}
+
+.info p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 22px;
+}
+
+.tag {
+    padding: 5px 9px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 3px;
+
+    color: #8be9f0;
+
+    font-family: monospace;
+
+    font-size: 10px;
+}
+
+/* Timeline */
+
+.timeline {
+    margin-top: 30px;
+
+    border-left: 1px solid var(--cyan);
+
+    padding-left: 25px;
+}
+
+.step {
+    position: relative;
+
+    margin-bottom: 25px;
+}
+
+.step::before {
+    content: "";
+
+    position: absolute;
+
+    left: -31px;
+    top: 5px;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 15px var(--cyan);
+}
+
+.step h3 {
+    font-size: 16px;
+}
+
+.step p {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+/* Footer */
+
+footer {
+    padding: 35px 8%;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+
+    color: #596b80;
+
+    font-size: 12px;
+}
+
+.back {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 12px 20px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    color: var(--cyan);
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.back:hover {
+    background: rgba(0,247,255,.08);
+
+    box-shadow:
+        0 0 25px rgba(0,247,255,.15);
+
+    transform: translateY(-3px);
+}
+
+@media(max-width:700px) {
+
+    nav {
+        padding: 15px 5%;
+    }
+
+    nav a {
+        margin-left: 9px;
+        font-size: 11px;
+    }
+
+    .hero {
+        padding: 125px 7% 60px;
+    }
+
+    .projects {
+        padding: 20px 7% 80px;
+    }
+
+    .case {
+        padding: 25px;
+    }
+
+}
+
+</style>
+
+<style id="clean-black-background">
+html, body {
+    background: #000 !important;
+}
+
+.background,
+.grid {
+    display: none !important;
+}
+
+body::before,
+body::after {
+    display: none !important;
+}
+</style>
+<style id="homepage-matching-project-style">
+
+/* ===== HOMEPAGE DESIGN SYSTEM ===== */
+
+:root {
+    --black:#02030a;
+    --deep:#050918;
+    --cyan:#00d9ff;
+    --blue:#176bff;
+    --pink:#ff168f;
+    --purple:#8d35ff;
+    --white:#f4fbff;
+    --muted:#91a4b8;
+}
+
+html,
+body {
+    background:#02030a !important;
+    color:var(--white) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+}
+
+
+/* ===== CYBERPUNK CYAN / MAGENTA BACKGROUND ===== */
+
+html,
+body {
+    background:
+        radial-gradient(circle at 8% 38%, rgba(0,217,255,.16), transparent 28%),
+        radial-gradient(circle at 92% 38%, rgba(255,22,143,.16), transparent 28%),
+        radial-gradient(circle at 50% 100%, rgba(0,110,255,.10), transparent 35%),
+        #02030a !important;
+}
+
+/* atmospheric side glows */
+
+body::before {
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        radial-gradient(ellipse at 0% 55%, rgba(0,217,255,.18), transparent 32%),
+        radial-gradient(ellipse at 100% 55%, rgba(255,22,143,.18), transparent 32%);
+
+    opacity:.9;
+}
+
+/* futuristic floor grid */
+
+body::after {
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:42vh;
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+        linear-gradient(rgba(0,217,255,.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,217,255,.12) 1px, transparent 1px),
+        linear-gradient(rgba(255,22,143,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,22,143,.06) 1px, transparent 1px);
+
+    background-size:
+        70px 45px,
+        70px 45px,
+        140px 90px,
+        140px 90px;
+
+    transform:perspective(500px) rotateX(58deg) scale(1.4);
+    transform-origin:center bottom;
+    opacity:.28;
+
+    mask-image:linear-gradient(to top, black, transparent 88%);
+}
+
+
+/* ===== FINAL CYBERPUNK BACKGROUND FIX ===== */
+
+.background,
+.grid {
+    display:none !important;
+}
+
+body::before {
+    content:"" !important;
+    position:fixed !important;
+    inset:0 !important;
+    z-index:0 !important;
+    pointer-events:none !important;
+
+    background:
+        radial-gradient(ellipse at 0% 45%, rgba(0,217,255,.28), transparent 34%),
+        radial-gradient(ellipse at 100% 45%, rgba(255,22,143,.28), transparent 34%),
+        radial-gradient(ellipse at 50% 100%, rgba(0,110,255,.14), transparent 40%) !important;
+
+    opacity:1 !important;
+}
+
+body::after {
+    content:"" !important;
+    position:fixed !important;
+    left:0 !important;
+    right:0 !important;
+    bottom:-10vh !important;
+    height:45vh !important;
+    z-index:0 !important;
+    pointer-events:none !important;
+
+    background:
+        linear-gradient(rgba(0,217,255,.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,217,255,.12) 1px, transparent 1px),
+        linear-gradient(rgba(255,22,143,.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,22,143,.07) 1px, transparent 1px) !important;
+
+    background-size:70px 45px, 70px 45px, 140px 90px, 140px 90px !important;
+
+    transform:perspective(500px) rotateX(58deg) scale(1.4) !important;
+    transform-origin:center bottom !important;
+
+    opacity:.35 !important;
+    mask-image:linear-gradient(to top, black, transparent 90%) !important;
+}
+
+body > *:not(.background) {
+    position:relative;
+    z-index:1;
+}
+
+/* ===== HOMEPAGE HEADER / NAV ===== */
+
+nav {
+    width:min(1450px,94%) !important;
+    height:72px !important;
+    margin:18px auto 0 !important;
+    padding:0 !important;
+    position:relative !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+
+    background:rgba(1,4,12,.68) !important;
+    backdrop-filter:blur(12px) !important;
+
+    border:1px solid rgba(0,205,255,.38) !important;
+    box-shadow:0 0 25px rgba(0,100,255,.08) !important;
+}
+
+nav .logo {
+    height:70px !important;
+    width:145px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    border-right:1px solid rgba(0,205,255,.35) !important;
+
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:34px !important;
+    font-weight:900 !important;
+    font-style:italic !important;
+    letter-spacing:4px !important;
+    color:white !important;
+
+    text-shadow:
+        3px 0 var(--pink),
+        -3px 0 var(--cyan),
+        0 0 20px var(--blue) !important;
+}
+
+nav .logo span {
+    color:white !important;
+    text-shadow:
+        3px 0 var(--pink),
+        -3px 0 var(--cyan),
+        0 0 20px var(--blue) !important;
+}
+
+nav > div:last-child {
+    display:flex !important;
+    gap:34px !important;
+    padding-right:30px !important;
+}
+
+nav a {
+    color:#b8c9da !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:12px !important;
+    letter-spacing:2px !important;
+    text-decoration:none !important;
+}
+
+nav a:hover {
+    color:white !important;
+    text-shadow:
+        2px 0 var(--pink),
+        -2px 0 var(--cyan),
+        0 0 15px var(--cyan) !important;
+}
+
+/* ===== PROJECT HERO ===== */
+
+.hero {
+    width:min(1450px,94%) !important;
+    margin:0 auto !important;
+    padding-top:110px !important;
+}
+
+.hero .label {
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:12px !important;
+    letter-spacing:4px !important;
+    margin-bottom:24px !important;
+}
+
+.hero h1 {
+    color:#fff !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:clamp(58px,7vw,112px) !important;
+    line-height:.82 !important;
+    letter-spacing:-5px !important;
+    text-transform:uppercase !important;
+    font-weight:950 !important;
+    transform:skew(-3deg) !important;
+
+    text-shadow:
+        4px 0 var(--cyan),
+        -3px 0 rgba(255,0,130,.8),
+        0 0 20px rgba(255,255,255,.25) !important;
+}
+
+.hero > p {
+    max-width:680px !important;
+    color:#d0dce8 !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:14px !important;
+    line-height:1.8 !important;
+    letter-spacing:2px !important;
+    margin-top:35px !important;
+}
+
+/* ===== PROJECT CASE CARDS ===== */
+
+.case {
+    margin-bottom:45px !important;
+    padding:35px !important;
+
+    border:1px solid rgba(0,210,255,.45) !important;
+    border-radius:0 !important;
+
+    background:rgba(3,7,18,.87) !important;
+    backdrop-filter:none !important;
+
+    transition:.35s !important;
+}
+
+.case:nth-of-type(even) {
+    border-color:rgba(255,20,150,.48) !important;
+}
+
+.case:hover {
+    transform:translateY(-6px) skew(-1deg) !important;
+    box-shadow:
+        7px 7px 0 rgba(255,15,150,.7),
+        -5px -5px 0 rgba(0,200,255,.6) !important;
+}
+
+.case-number {
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    letter-spacing:3px !important;
+}
+
+.case:nth-of-type(even) .case-number {
+    color:var(--pink) !important;
+}
+
+/* ===== HOMEPAGE PROJECT CARD SYSTEM ===== */
+
+.projects {
+    width:min(1450px,94%) !important;
+    margin:0 auto !important;
+}
+
+.case {
+    padding:22px !important;
+    margin-bottom:45px !important;
+    background:rgba(3,7,18,.87) !important;
+    border:1px solid rgba(0,210,255,.45) !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+}
+
+.case h2 {
+    margin:12px 0 8px !important;
+    font-size:26px !important;
+    letter-spacing:1px !important;
+    color:#fff !important;
+}
+
+.case-intro {
+    max-width:680px !important;
+    margin:0 !important;
+    color:#8da1b5 !important;
+    font-size:12px !important;
+    line-height:1.6 !important;
+}
+
+.case-grid {
+    display:grid !important;
+    grid-template-columns:repeat(4,1fr) !important;
+    gap:16px !important;
+    margin-top:22px !important;
+}
+
+.info {
+    min-height:105px !important;
+    padding:18px !important;
+    border:1px solid rgba(0,210,255,.35) !important;
+    border-radius:0 !important;
+    background:rgba(3,7,18,.75) !important;
+}
+
+.info h3 {
+    margin:0 0 10px !important;
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:10px !important;
+    letter-spacing:2px !important;
+}
+
+.info p {
+    margin:0 !important;
+    color:#8da1b5 !important;
+    font-size:12px !important;
+    line-height:1.5 !important;
+}
+
+@media(max-width:900px) {
+    .case-grid {
+        grid-template-columns:repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width:600px) {
+    .case-grid {
+        grid-template-columns:1fr !important;
+    }
+}
+
+
+/* ===== CYBERPUNK PROJECT TIMELINE ===== */
+
+.timeline {
+    margin-top:28px !important;
+    padding:18px 0 0 !important;
+    border-left:none !important;
+    border-top:1px solid rgba(0,217,255,.35) !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(4,1fr) !important;
+    gap:16px !important;
+}
+
+.step {
+    position:relative !important;
+    margin:0 !important;
+    min-height:105px !important;
+    padding:18px !important;
+
+    background:rgba(3,7,18,.82) !important;
+    border:1px solid rgba(0,217,255,.38) !important;
+    border-radius:0 !important;
+
+    transition:.3s !important;
+}
+
+.step:nth-child(even) {
+    border-color:rgba(255,22,143,.48) !important;
+}
+
+.step::before {
+    content:none !important;
+}
+
+.step h3 {
+    margin:0 0 10px !important;
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:11px !important;
+    letter-spacing:2px !important;
+}
+
+.step:nth-child(even) h3 {
+    color:var(--pink) !important;
+}
+
+.step p {
+    margin:0 !important;
+    color:#8da1b5 !important;
+    font-size:12px !important;
+    line-height:1.5 !important;
+}
+
+.step:hover {
+    transform:translateY(-6px) skew(-1deg) !important;
+    box-shadow:
+        5px 5px 0 rgba(255,22,143,.55),
+        -4px -4px 0 rgba(0,217,255,.45) !important;
+}
+
+@media(max-width:900px) {
+    .timeline {
+        grid-template-columns:repeat(2,1fr) !important;
+    }
+}
+
+@media(max-width:600px) {
+    .timeline {
+        grid-template-columns:1fr !important;
+    }
+}
+
+
+/* ===== FORCE TIMELINE LAYOUT ===== */
+
+section.projects .case .timeline {
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+    gap:16px !important;
+    width:100% !important;
+    margin-top:28px !important;
+    padding:18px 0 0 !important;
+    border:0 !important;
+    border-top:1px solid rgba(0,217,255,.35) !important;
+}
+
+section.projects .case .timeline > .step {
+    display:block !important;
+    position:relative !important;
+    width:auto !important;
+    margin:0 !important;
+    padding:18px !important;
+    min-height:105px !important;
+
+    border:1px solid rgba(0,217,255,.38) !important;
+    border-radius:0 !important;
+    background:rgba(3,7,18,.82) !important;
+}
+
+section.projects .case .timeline > .step:nth-child(even) {
+    border-color:rgba(255,22,143,.48) !important;
+}
+
+section.projects .case .timeline > .step::before {
+    display:none !important;
+    content:none !important;
+}
+
+section.projects .case .timeline > .step h3 {
+    margin:0 0 10px !important;
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:11px !important;
+    letter-spacing:2px !important;
+}
+
+section.projects .case .timeline > .step:nth-child(even) h3 {
+    color:var(--pink) !important;
+}
+
+section.projects .case .timeline > .step p {
+    margin:0 !important;
+    color:#8da1b5 !important;
+    font-size:12px !important;
+    line-height:1.5 !important;
+}
+
+@media(max-width:900px) {
+    section.projects .case .timeline {
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    }
+}
+
+@media(max-width:600px) {
+    section.projects .case .timeline {
+        grid-template-columns:1fr !important;
+    }
+}
+
+/* ===== INNER INFORMATION CARDS ===== */
+
+.info {
+    padding:20px !important;
+    border:1px solid rgba(0,210,255,.25) !important;
+    border-radius:0 !important;
+    background:rgba(3,7,18,.65) !important;
+}
+
+.info h3 {
+    color:var(--cyan) !important;
+    font-family:Arial,Helvetica,sans-serif !important;
+    letter-spacing:2px !important;
+}
+
+/* ===== TAGS / STEPS ===== */
+
+.tags span,
+.tag {
+    border-radius:0 !important;
+}
+
+.step {
+    border-radius:0 !important;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:650px) {
+    nav {
+        width:94% !important;
+        height:60px !important;
+    }
+
+    nav .logo {
+        height:60px !important;
+        width:80px !important;
+        font-size:24px !important;
+    }
+
+    nav > div:last-child {
+        gap:12px !important;
+        padding-right:15px !important;
+    }
+
+    .hero {
+        padding-top:80px !important;
+    }
+
+    .hero h1 {
+        font-size:52px !important;
+    }
+}
+
+</style>
+
+<style id="global-content-typography">
+
+/* ===== GLOBAL CONTENT TYPOGRAPHY ===== */
+
+body{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+}
+
+/* Normal portfolio content */
+p,
+.case-intro,
+.info p,
+.step p,
+.contact-intro,
+.about-main p,
+.card p{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    font-size:16px;
+    font-weight:400;
+    line-height:1.85;
+    letter-spacing:.3px;
+}
+
+/* Smaller supporting information */
+.info span,
+.step span,
+.contact-card small,
+.about-item span,
+.number{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    letter-spacing:2px;
+}
+
+/* Project / technical content */
+.info strong,
+.step h3,
+.contact-card strong,
+.about-item strong{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    font-weight:600;
+}
+
+@media(max-width:700px){
+    p,
+    .case-intro,
+    .info p,
+    .step p,
+    .contact-intro,
+    .about-main p,
+    .card p{
+        font-size:15px;
+        line-height:1.8;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background">
+    <div class="grid"></div>
+</div>
+
+
+<nav>
+
+    <div class="logo">
+        J<span>S</span>
+    </div>
+
+    <div>
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="index.html#about-profile">
+            ABOUT
+        </a>
+
+        <a href="projects.html">
+            PROJECTS
+        </a>
+
+        <a href="index.html#skills">
+            SKILLS
+        </a>
+
+        <a href="index.html#contact">
+            CONTACT
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="label">
+        // PROJECT DATABASE / SECURITY LAB
+    </div>
+
+    <h1>
+        CASE STUDIES
+    </h1>
+
+    <p>
+        A collection of hands-on infrastructure, networking and
+        cybersecurity projects developed inside my home laboratory.
+        Each project documents the objective, implementation,
+        security considerations, troubleshooting and lessons learned.
+    </p>
+
+    <a class="back" href="index.html">
+        ← RETURN TO MAIN SYSTEM
+    </a>
+
+</section>
+
+
+<section class="projects" id="projects">
+
+
+<!-- PROJECT 001 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_001
+    </div>
+
+    <h2>
+        Debian Home Server
+    </h2>
+
+    <p class="case-intro">
+        Repurposed an older laptop into a Linux-based home server
+        capable of providing network services, secure file sharing,
+        remote access and web hosting.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>OBJECTIVE</h3>
+
+            <p>
+                Build a practical Linux server while learning
+                system administration, networking and service
+                management.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>PLATFORM</h3>
+
+            <p>
+                Debian Linux running on an ASUS K53S laptop with
+                Intel Core i5 processor, 4 GB RAM and internal HDD.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>SERVICES</h3>
+
+            <p>
+                AdGuard Home, Samba, Tailscale, UFW and Nginx.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>RESULT</h3>
+
+            <p>
+                Functional home server supporting networking,
+                file services, remote access and web hosting.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Installation</h3>
+
+            <p>
+                Installed Debian Linux on the repurposed laptop and
+                prepared the system for self-hosted server workloads.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — Networking</h3>
+
+            <p>
+                Configured a static IPv4 address and integrated
+                the server into the home network for reliable service access.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — Services</h3>
+
+            <p>
+                Deployed AdGuard Home for DNS/DHCP, Samba for file
+                sharing, Tailscale for remote access and Nginx for web hosting.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — Security</h3>
+
+            <p>
+                Configured UFW with a default-deny inbound policy
+                and allowed services only where network access was required.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">DEBIAN</span>
+        <span class="tag">LINUX</span>
+        <span class="tag">SERVER</span>
+        <span class="tag">NETWORKING</span>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 002 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_002
+    </div>
+
+    <h2>
+        Network DNS & DHCP Security
+    </h2>
+
+    <p class="case-intro">
+        Configured AdGuard Home as a network-wide DNS and DHCP
+        service while troubleshooting DNS, IPv4, IPv6 and router
+        configuration issues.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>OBJECTIVE</h3>
+
+            <p>
+                Centralize DNS and DHCP services while building
+                practical experience with network-wide DNS management.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>DNS SERVER</h3>
+
+            <p>
+                AdGuard Home running on the Debian server and
+                providing DNS resolution for the local network.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>DHCP</h3>
+
+            <p>
+                DHCP was moved from the router to AdGuard Home so
+                clients could receive the intended DNS configuration.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>SECURITY</h3>
+
+            <p>
+                DNS access is restricted to the local network,
+                preventing the resolver from being exposed publicly.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Static Server Address</h3>
+
+            <p>
+                Configured the Debian server with a stable internal
+                IPv4 address for reliable DNS and DHCP service delivery.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — DNS</h3>
+
+            <p>
+                Configured AdGuard Home as the network DNS service
+                and verified DNS resolution from connected clients.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — DHCP</h3>
+
+            <p>
+                Disabled the router DHCP service and configured AdGuard Home
+                to provide DHCP addresses and the intended DNS server.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — IPv6 Investigation</h3>
+
+            <p>
+                Investigated IPv6 as a potential DNS bypass path and
+                disabled router IPv6 Internet connectivity to keep DNS control within the lab network.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">ADGUARD</span>
+        <span class="tag">DNS</span>
+        <span class="tag">DHCP</span>
+        <span class="tag">IPV4</span>
+        <span class="tag">IPV6</span>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 003 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_003
+    </div>
+
+    <h2>
+        Secure Samba File Server
+    </h2>
+
+    <p class="case-intro">
+        Built a Linux-based file server with authenticated Samba
+        access and network-restricted firewall rules.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>OBJECTIVE</h3>
+
+            <p>
+                Provide secure file sharing between Windows and
+                Linux systems on the home network.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>AUTHENTICATION</h3>
+
+            <p>
+                Created a dedicated Linux/Samba account for file
+                server access.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>ACCESS CONTROL</h3>
+
+            <p>
+                Samba services were restricted by UFW to the
+                internal network.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>REMOTE ACCESS</h3>
+
+            <p>
+                Remote file access is performed through the private
+                Tailscale network rather than exposing SMB publicly.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Storage</h3>
+
+            <p>
+                Created a dedicated server storage location for shared
+                files and assigned ownership to the file-server account.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — Samba</h3>
+
+            <p>
+                Installed and configured Samba with an authenticated
+                Files share for controlled network file access.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — Testing</h3>
+
+            <p>
+                Verified the Samba share locally and from Windows,
+                confirming authenticated access and file operations.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — Firewall</h3>
+
+            <p>
+                Restricted SMB-related ports to the home network
+                with UFW and kept SMB inaccessible from public networks.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">SAMBA</span>
+        <span class="tag">SMB</span>
+        <span class="tag">LINUX</span>
+        <span class="tag">UFW</span>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 004 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_004
+    </div>
+
+    <h2>
+        Tailscale Remote Access
+    </h2>
+
+    <p class="case-intro">
+        Implemented secure remote access to the Debian server after
+        identifying that the home Internet connection was behind
+        upstream NAT.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>PROBLEM</h3>
+
+            <p>
+                The router received a private WAN address while the
+                connection had a separate public address.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>IMPLICATION</h3>
+
+            <p>
+                Traditional inbound port forwarding was not a suitable
+                solution for remote access.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>SOLUTION</h3>
+
+            <p>
+                Used Tailscale to establish private connectivity
+                between trusted devices.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>SECURITY</h3>
+
+            <p>
+                SMB remains unexposed to the public Internet.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Network Investigation</h3>
+
+            <p>
+                Compared the router WAN address with the observed public
+                address and identified upstream NAT as the connectivity constraint.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — Tailscale Installation</h3>
+
+            <p>
+                Installed and authenticated Tailscale on the Debian
+                server and Windows client to establish private connectivity.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — Connectivity Test</h3>
+
+            <p>
+                Verified connectivity using the server's Tailscale address
+                from the remote Windows client.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — SMB Test</h3>
+
+            <p>
+                Successfully accessed the Samba share remotely through
+                the private Tailscale network without exposing SMB publicly.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">TAILSCALE</span>
+        <span class="tag">CGNAT</span>
+        <span class="tag">VPN</span>
+        <span class="tag">SMB</span>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 005 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_005
+    </div>
+
+    <h2>
+        Linux Firewall
+    </h2>
+
+    <p class="case-intro">
+        Configured UFW as a host firewall and created rules based
+        on the intended network exposure of each service.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>DEFAULT POLICY</h3>
+
+            <p>
+                Incoming connections are denied by default while
+                outgoing connections are allowed.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>LAN SERVICES</h3>
+
+            <p>
+                Samba, DNS and the local portfolio web service are
+                restricted to the home network.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>REMOTE NETWORK</h3>
+
+            <p>
+                Tailscale interface traffic is permitted for private
+                remote access.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>VERIFICATION</h3>
+
+            <p>
+                Tested both local and remote access after enabling
+                the firewall.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Install</h3>
+
+            <p>
+                Installed UFW and reviewed the server's existing
+                listening services before applying firewall rules.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — Default Rules</h3>
+
+            <p>
+                Configured a deny-by-default inbound policy while
+                allowing outbound traffic required by the server.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — Service Rules</h3>
+
+            <p>
+                Added service-specific rules for SSH, DNS, DHCP, Samba,
+                HTTP and the portfolio web service with network restrictions.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — Validation</h3>
+
+            <p>
+                Verified that Tailscale and Samba continued to function
+                correctly after the firewall rules were applied.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">UFW</span>
+        <span class="tag">FIREWALL</span>
+        <span class="tag">LINUX</span>
+        <span class="tag">ACCESS CONTROL</span>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 006 -->
+
+<div class="case">
+
+    <div class="case-number">
+        PROJECT_006
+    </div>
+
+    <h2>
+        Cybersecurity Lab
+    </h2>
+
+    <p class="case-intro">
+        A controlled environment being developed for learning
+        network security, vulnerability assessment, web security
+        and defensive techniques.
+    </p>
+
+
+    <div class="case-grid">
+
+        <div class="info">
+
+            <h3>STATUS</h3>
+
+            <p>
+                Under development.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>OBJECTIVE</h3>
+
+            <p>
+                Build practical security experience using systems
+                that are owned or explicitly authorized for testing.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>PLANNED AREAS</h3>
+
+            <p>
+                Network scanning, packet analysis, web security,
+                vulnerability assessment and defensive monitoring.
+            </p>
+
+        </div>
+
+
+        <div class="info">
+
+            <h3>APPROACH</h3>
+
+            <p>
+                Keep intentionally vulnerable systems isolated from
+                the normal home network.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="step">
+
+            <h3>01 — Network Lab</h3>
+
+            <p>
+                Build an isolated environment for controlled security
+                experiments without affecting the normal home network.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>02 — Reconnaissance</h3>
+
+            <p>
+                Practice network discovery and service enumeration
+                against systems owned or explicitly authorized for testing.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>03 — Web Security</h3>
+
+            <p>
+                Introduce intentionally vulnerable applications for
+                controlled web-security testing and analysis.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <h3>04 — Defense</h3>
+
+            <p>
+                Study logging, detection, firewalling and remediation
+                techniques following controlled security testing.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">CYBERSECURITY</span>
+        <span class="tag">NETWORK SECURITY</span>
+        <span class="tag">WEB SECURITY</span>
+        <span class="tag">LAB</span>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+<footer>
+
+    © 2026 Jeganathan Selvam
+    <br>
+    CYBERSECURITY · NETWORK SECURITY · LINUX · INFRASTRUCTURE
+
+</footer>
+
+
+<script>
+
+/* Card movement */
+
+const cards = document.querySelectorAll(".case");
+
+cards.forEach(card => {
+
+    card.addEventListener("mousemove", event => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 2;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-7px)`;
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+
